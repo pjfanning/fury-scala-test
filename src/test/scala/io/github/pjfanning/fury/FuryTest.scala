@@ -5,6 +5,8 @@ import io.fury.config.Language
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 
+import scala.runtime.ModuleSerializationProxy
+
 class FuryTest extends AnyWordSpec with Matchers {
   "fury" should {
     "serialize/deserialize Person" in {
@@ -16,6 +18,7 @@ class FuryTest extends AnyWordSpec with Matchers {
     }
     "serialize/deserialize SampleObject" in {
       val fury = Fury.builder().withLanguage(Language.JAVA).build()
+      fury.register(classOf[ModuleSerializationProxy])
       fury.register(SampleObject.getClass)
       val bytes = fury.serialize(SampleObject)
       fury.deserialize(bytes) shouldBe SampleObject
