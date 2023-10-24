@@ -23,5 +23,13 @@ class FuryTest extends AnyWordSpec with Matchers {
       val bytes = fury.serialize(SampleObject)
       fury.deserialize(bytes) shouldBe SampleObject
     }
+    "serialize/deserialize Weekday" in {
+      val fury = Fury.builder().withLanguage(Language.JAVA).build()
+      fury.register(scala.FuryUtils.SCALA_ENUMERATION_VAL_CLASS)
+      fury.register(classOf[ModuleSerializationProxy])
+      fury.register(WeekDay.getClass)
+      val bytes = fury.serialize(WeekDay.Wed)
+      fury.deserialize(bytes) shouldBe WeekDay.Wed
+    }
   }
 }
