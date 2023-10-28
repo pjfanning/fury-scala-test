@@ -15,3 +15,6 @@ The problem is that you need to register a number of internal Scala classes when
 
 This is because Fury relies on internal Scala class serialization and this exposes the innards of the Scala
 class representation. Have a look at the test cases in this project to see some examples.
+
+Fury has not been optimized for Scala class uses. There are open issues but it could be a big undertaking to create optimized serializers/deserailizers
+for Scala collections, etc.
