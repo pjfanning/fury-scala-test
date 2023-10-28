@@ -8,6 +8,7 @@ import org.scalatest.wordspec.AnyWordSpec
 class FuryEnumeration212Test extends AnyWordSpec with Matchers {
   "fury scala object support" should {
     "serialize/deserialize Weekday" in {
+      // https://github.com/alipay/fury/issues/1032
       val fury = Fury.builder().withLanguage(Language.JAVA).build()
       fury.register(ScalaClasses.ScalaEnumerationValClass)
       fury.register(WeekDay.getClass)
