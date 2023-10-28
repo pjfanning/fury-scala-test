@@ -1,6 +1,6 @@
 name := "fury-scala-test"
 
-scalaVersion := "2.12.18"
+scalaVersion := "2.13.12"
 crossScalaVersions := Seq("2.12.18", "2.13.12", "3.3.1")
 
 val furyVersion = "0.2.1"
