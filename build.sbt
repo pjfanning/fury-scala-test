@@ -1,6 +1,6 @@
 name := "fury-scala-test"
 
-scalaVersion := "2.13.12"
+scalaVersion := "2.12.18"
 crossScalaVersions := Seq("2.12.18", "2.13.12", "3.3.1")
 
 val furyVersion = "0.2.1"
@@ -12,3 +12,15 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "3.2.17",
   "org.slf4j" % "slf4j-simple" % "2.0.9" % Test
 )
+
+Test / unmanagedSourceDirectories ++= {
+  if (scalaBinaryVersion.value.startsWith("2.12")) {
+    Seq(
+      (LocalRootProject / baseDirectory).value / "src" / "test" / "scala-2.12"
+    )
+  } else {
+    Seq(
+      (LocalRootProject / baseDirectory).value / "src" / "test" / "scala-2.13+"
+    )
+  }
+}
