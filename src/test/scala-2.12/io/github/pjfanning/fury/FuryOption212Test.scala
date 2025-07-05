@@ -1,14 +1,14 @@
 package io.github.pjfanning.fury
 
-import io.fury.Fury
-import io.fury.config.Language
+import org.apache.fory.Fory
+import org.apache.fory.config.Language
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 
 class FuryOption212Test extends AnyWordSpec with Matchers {
   "fury scala option support" should {
     "serialize/deserialize Option[Long]" in {
-      val fury = Fury.builder().withLanguage(Language.JAVA).build()
+      val fury = Fory.builder().withLanguage(Language.JAVA).build()
       fury.register(classOf[Option[_]])
       fury.register(classOf[Some[_]])
       fury.register(None.getClass)
@@ -17,7 +17,7 @@ class FuryOption212Test extends AnyWordSpec with Matchers {
       fury.deserialize(bytes) shouldEqual opt
     }
     "serialize/deserialize None" in {
-      val fury = Fury.builder().withLanguage(Language.JAVA).build()
+      val fury = Fory.builder().withLanguage(Language.JAVA).build()
       fury.register(classOf[Option[_]])
       fury.register(classOf[Some[_]])
       fury.register(None.getClass)

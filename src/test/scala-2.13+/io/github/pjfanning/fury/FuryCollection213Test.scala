@@ -1,7 +1,7 @@
 package io.github.pjfanning.fury
 
-import io.fury.Fury
-import io.fury.config.Language
+import org.apache.fory.Fory
+import org.apache.fory.config.Language
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 
@@ -11,7 +11,7 @@ import scala.runtime.ModuleSerializationProxy
 class FuryCollection213Test extends AnyWordSpec with Matchers {
   "fury scala collection support" should {
     "serialize/deserialize ListWrapper" in {
-      val fury = Fury.builder().withLanguage(Language.JAVA).build()
+      val fury = Fory.builder().withLanguage(Language.JAVA).build()
       fury.register(classOf[DefaultSerializationProxy[_]])
       fury.register(classOf[ModuleSerializationProxy])
       fury.register(Nil.getClass)
@@ -25,7 +25,7 @@ class FuryCollection213Test extends AnyWordSpec with Matchers {
       fury.deserialize(bytes) shouldEqual listWrapper
     }
     "serialize/deserialize ListWrapper with empty list" in {
-      val fury = Fury.builder().withLanguage(Language.JAVA).build()
+      val fury = Fory.builder().withLanguage(Language.JAVA).build()
       fury.register(classOf[DefaultSerializationProxy[_]])
       fury.register(classOf[ModuleSerializationProxy])
       fury.register(Nil.getClass)

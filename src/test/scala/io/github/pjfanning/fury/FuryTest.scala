@@ -1,7 +1,7 @@
 package io.github.pjfanning.fury
 
-import io.fury.Fury
-import io.fury.config.Language
+import org.apache.fory.Fory
+import org.apache.fory.config.Language
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 
@@ -9,13 +9,13 @@ class FuryTest extends AnyWordSpec with Matchers {
   "fury" should {
     "serialize/deserialize Person" in {
       val person = Person("Cú Chulainn", 35, 1234567890)
-      val fury = Fury.builder().withLanguage(Language.JAVA).build()
+      val fury = Fory.builder().withLanguage(Language.JAVA).build()
       fury.register(classOf[Person])
       val bytes = fury.serialize(person)
       fury.deserialize(bytes) shouldEqual person
     }
     "serialize/deserialize Line" in {
-      val fury = Fury.builder().withLanguage(Language.JAVA).build()
+      val fury = Fory.builder().withLanguage(Language.JAVA).build()
       fury.register(classOf[Line])
       fury.register(classOf[Point])
       fury.register(classOf[Point2D])

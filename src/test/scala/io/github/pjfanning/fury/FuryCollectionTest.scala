@@ -1,14 +1,14 @@
 package io.github.pjfanning.fury
 
-import io.fury.Fury
-import io.fury.config.Language
+import org.apache.fory.Fory
+import org.apache.fory.config.Language
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 
 class FuryCollectionTest extends AnyWordSpec with Matchers {
   "fury scala collection support" should {
     "serialize/deserialize SetWrapper" in {
-      val fury = Fury.builder().withLanguage(Language.JAVA).build()
+      val fury = Fory.builder().withLanguage(Language.JAVA).build()
       fury.register(classOf[Set[_]])
       fury.register(ScalaClasses.ScalaSet2Class)
       fury.register(classOf[SetWrapper[_]])

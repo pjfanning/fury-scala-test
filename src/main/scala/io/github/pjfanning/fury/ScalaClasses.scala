@@ -1,7 +1,7 @@
 package io.github.pjfanning.fury
 
 /**
- * Internal Scala classes that you may need to register when serializing with Fury
+ * Internal Scala classes that you may need to register when serializing with Fory
  */
 object ScalaClasses {
   lazy val ScalaEnumerationValClass = Class.forName("scala.Enumeration$Val")
