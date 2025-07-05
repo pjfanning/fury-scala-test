@@ -1,7 +1,7 @@
 name := "fury-scala-test"
 
-scalaVersion := "2.13.12"
-crossScalaVersions := Seq("2.12.18", "2.13.12", "3.3.1")
+scalaVersion := "2.13.16"
+crossScalaVersions := Seq("2.12.20", "2.13.16", "3.3.6")
 
 val furyVersion = "0.2.1"
 
@@ -9,8 +9,8 @@ val furyVersion = "0.2.1"
 
 libraryDependencies ++= Seq(
   "org.furyio" % "fury-core" % furyVersion,
-  "org.scalatest" %% "scalatest" % "3.2.17",
-  "org.slf4j" % "slf4j-simple" % "2.0.9" % Test
+  "org.scalatest" %% "scalatest" % "3.2.19",
+  "org.slf4j" % "slf4j-simple" % "2.0.17" % Test
 )
 
 Test / unmanagedSourceDirectories ++= {
